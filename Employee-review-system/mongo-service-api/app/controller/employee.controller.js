@@ -4,16 +4,21 @@ const Employee = db.employees;
 // Create and Save a new Employee
 exports.create = (req, res) => {
 	 // Validate request
-  if (!req.body.title) {
+  if (!req.body.employeeId) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
   // Create a Employee
   const employee = new Employee({
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+        employeeId: req.body.employeeId,
+        employeeName: req.body.employeeName,
+        employeeDepartment: req.body.employeeDepartment,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        performanceReviewStatus: req.body.performanceReviewStatus ? req.body.performanceReviewStatus: false,
+        employeeReviewer: req.body.employeeReviewer
   });
 
   // Save Employee in the database
@@ -128,15 +133,15 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published Employee data
-exports.findAllPublished = (req, res) => {
-  Employee.find({ published: true })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving employees."
-      });
-    });
-};
+// exports.findAllPublished = (req, res) => {
+//   Employee.find()
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving employees."
+//       });
+//     });
+// };

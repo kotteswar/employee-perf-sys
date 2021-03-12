@@ -1,63 +1,56 @@
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="title"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
-        >
-          Search
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <h4>Employees List</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let employee of employees; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveEmployee(employee, i)"
-      >
-        {{ employee.title }}
-      </li>
-    </ul>
+<table mat-table [dataSource]="employees" class="mat-elevation-z8">
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllEmployees()">
-      Remove All
-    </button>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentEmployee">
-      <h4>Employee</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentEmployee.title }}
-      </div>
-      <div>
-        <label><strong>Description:</strong></label>
-        {{ currentEmployee.description }}
-      </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentEmployee.published ? "Published" : "Pending" }}
-      </div>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
 
-      <a class="badge badge-warning" routerLink="/employees/{{ currentEmployee.id }}">
-        Edit
-      </a>
-    </div>
+  <!-- Employee ID Column -->
+  <ng-container matColumnDef="employeeId">
+    <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+  </ng-container>
 
-    <div *ngIf="!currentEmployee">
-      <br />
-      <p>Please click on a Employee...</p>
-    </div>
-  </div>
-</div>
+  <!-- Name Column -->
+  <ng-container matColumnDef="employeeName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeName}} </td>
+  </ng-container>
+
+  <!-- Department Column -->
+  <ng-container matColumnDef="employeeDepartment">
+    <th mat-header-cell *matHeaderCellDef> Department </th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeDepartment}} </td>
+  </ng-container>
+
+  <!-- Username Column -->
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+   <!-- Email Column -->
+   <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container> 
+
+  <!-- Performace review Column -->
+  <ng-container matColumnDef="performanceReviewStatus">
+    <th mat-header-cell *matHeaderCellDef> Performace review status </th>
+    <td mat-cell *matCellDef="let element"> {{element.performanceReviewStatus ? "Done" : "No"}} </td>
+  </ng-container> 
+
+  <!-- Reviewer assigned Column -->
+  <ng-container matColumnDef="employeeReviewer">
+    <th mat-header-cell *matHeaderCellDef> Reviewer Assigned</th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeReviewer ? element.employeeReviewer : "Not assigned"}} </td>
+  </ng-container> 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

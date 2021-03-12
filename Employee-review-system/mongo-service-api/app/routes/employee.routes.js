@@ -10,7 +10,7 @@ module.exports = app => {
   router.get("/", employees.findAll);
 
   // Retrieve all published Employees
-  router.get("/published", employees.findAllPublished);
+  // router.get("/published", employees.findAllPublished);
 
   // Retrieve a single Employee with id
   router.get("/:id", employees.findOne);

@@ -15,6 +15,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AdminContentComponent } from './components/admin-content/admin-content.component';
 import { ManagerContentComponent } from './components/manager-content/manager-content.component';
 import { NormaluserContentComponent } from './components/normaluser-content/normaluser-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSortModule, MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import { NormaluserContentComponent } from './components/normaluser-content/norm
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

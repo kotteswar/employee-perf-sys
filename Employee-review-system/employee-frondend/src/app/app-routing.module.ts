@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'user', component: NormaluserContentComponent },
   { path: 'man', component: ManagerContentComponent },
   { path: 'admin', component: AdminContentComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
