@@ -1,59 +1,83 @@
-<div *ngIf="currentEmployee" class="edit-form">
-  <h4>Employee</h4>
-  <form>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        [(ngModel)]="currentEmployee.title"
-        name="title"
-      />
+<div  class="edit-form">
+  <h4>Employee details update form</h4>
+  <form [formGroup]="employeeFormGroup">
+    <div class="form-field">
+    <mat-form-field>
+      <mat-label>Employee Id</mat-label>
+      <input matInput formControlName="employeeId">
+    </mat-form-field>
     </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input
-        type="text"
-        class="form-control"
-        id="description"
-        [(ngModel)]="currentEmployee.description"
-        name="description"
-      />
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Employee Name</mat-label>
+      <input matInput formControlName="employeeName">
+    </mat-form-field>
     </div>
-
-    <div class="form-group">
-      <label><strong>Status:</strong></label>
-      {{ currentEmployee.published ? "Published" : "Pending" }}
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Employee Department</mat-label>
+      <input matInput formControlName="employeeDepartment">
+    </mat-form-field>
     </div>
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Performance Review status</mat-label>
+      <input matInput formControlName="performanceReviewStatus" readonly>
+    </mat-form-field>
+    </div>
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+    </div>
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    </div>
+    
+    <div class="form-field">
+    <mat-form-field  >
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+    </div>
+    <div class="form-field">
+    <mat-form-field>
+      <mat-select placeholder="Roles" formControlName="roles" name="roles">
+        <mat-option *ngFor="let role of roles" [value]="role.id">
+          {{role.roleName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+    <div class="form-field">
+    <mat-form-field>
+      <mat-select placeholder="Assign Reviewer" formControlName="employeeReviewer" name="employeeReviewer">
+        <mat-option *ngFor="let users of userNameList" [value]="users.id">
+          {{users.employeeName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   </form>
 
-  <button
-    class="badge badge-primary mr-2"
-    *ngIf="currentEmployee.published"
-    (click)="updatePublished(false)"
-  >
-    UnPublish
-  </button>
-  <button
-    *ngIf="!currentEmployee.published"
-    class="badge badge-primary mr-2"
-    (click)="updatePublished(true)"
-  >
-    Publish
-  </button>
 
-  <button class="badge badge-danger mr-2" (click)="deleteEmployee()">
+  <!-- <button class="badge badge-danger mr-2" (click)="deleteEmployee()">
     Delete
-  </button>
+  </button> -->
 
-  <button type="submit" class="badge badge-success" (click)="updateEmployee()">
-    Update
+  <button type="submit"  class="btn btn-primary" mat-button color="accent" (click)="updateEmployee()">
+    Update Employee details
   </button>
   <p>{{ message }}</p>
 </div>
 
-<div *ngIf="!currentEmployee">
-  <br />
-  <p>Cannot access this Employees...</p>
-</div>
+

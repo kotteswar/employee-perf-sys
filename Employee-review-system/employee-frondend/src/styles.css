@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
+html, body { height: 100%; background-color: #8a837d; color: #fff;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .card.card-container {
     max-width: 300px;
@@ -20,4 +20,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-group button {
     width: 100%;
 }
-
+.employee-add {
+    color: #fff;
+    text-align: center;
+}
+.card.card-container form {
+    padding: 20px;
+}
+.btn-primary {
+    background-color: #1b615a;
+}

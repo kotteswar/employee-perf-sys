@@ -1,33 +1,74 @@
-<div class="submit-form">
-  <div *ngIf="!submitted">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        required
-        [(ngModel)]="employee.title"
-        name="title"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input
-        class="form-control"
-        id="description"
-        required
-        [(ngModel)]="employee.description"
-        name="description"
-      />
-    </div>
-
-    <button (click)="saveEmployee()" class="btn btn-success">Submit</button>
+<div class="employee-add">
+<h3>Fill the employee info to add</h3>
+ 
+<form [formGroup]="employeeFormGroup">
+  <div class="form-field">
+  <mat-form-field>
+    <mat-label>Employee Id</mat-label>
+    <input matInput formControlName="employeeId">
+  </mat-form-field>
   </div>
-
-  <div *ngIf="submitted">
-    <h4>You submitted successfully!</h4>
-    <button class="btn btn-success" (click)="newEmployee()">Add</button>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Employee Name</mat-label>
+    <input matInput formControlName="employeeName">
+  </mat-form-field>
   </div>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Employee Department</mat-label>
+    <input matInput formControlName="employeeDepartment">
+  </mat-form-field>
+  </div>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Performance Review status</mat-label>
+    <input matInput formControlName="performanceReviewStatus" readonly>
+  </mat-form-field>
+  </div>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+  </div>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+  </div>
+  
+  <div class="form-field">
+  <mat-form-field  >
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password">
+  </mat-form-field>
+  </div>
+  <div class="form-field">
+  <mat-form-field>
+    <mat-select placeholder="Roles" formControlName="roles" name="roles">
+      <mat-option *ngFor="let role of roles" [value]="role.id">
+        {{role.roleName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="form-field">
+  <mat-form-field>
+    <mat-select placeholder="Assign Reviewer" formControlName="employeeReviewer" name="employeeReviewer">
+      <mat-option *ngFor="let users of userNameList" [value]="users.id">
+        {{users.employeeName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+</form>
+
+<button (click)="saveEmployee()" class="btn btn-success">Submit</button>
 </div>

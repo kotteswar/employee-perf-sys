@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,10 @@ import { AdminContentComponent } from './components/admin-content/admin-content.
 import { ManagerContentComponent } from './components/manager-content/manager-content.component';
 import { NormaluserContentComponent } from './components/normaluser-content/normaluser-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSortModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatSelectModule, MatSortModule, MatTableModule } from '@angular/material';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,11 +38,17 @@ import { MatSortModule, MatTableModule } from '@angular/material';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

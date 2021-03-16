@@ -15,7 +15,7 @@ import { AdminContentComponent } from './components/admin-content/admin-content.
 //Route mapping
 const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
-  { path: 'employees/:id', component: EmployeeDetailsComponent },
+  { path: 'employee-details/:id', component: EmployeeDetailsComponent },
   { path: 'add', component: AddEmployeeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },

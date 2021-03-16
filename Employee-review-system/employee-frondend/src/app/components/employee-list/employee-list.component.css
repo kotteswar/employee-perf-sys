@@ -3,6 +3,17 @@
   max-width: 750px;
   margin: auto;
 }
+.list-header {
+  max-width: 400px;
+  display: inline-block;
+}
+button.create-employee {
+  float: right;
+}
 table {
   width: 100%;
+  text-align: left;
+}
+.employee-list-section {
+  margin-top: 20px;
 }
