@@ -22,11 +22,12 @@ module.exports = mongoose => {
         employeeName: String,
         employeeDepartment: String,
         performanceReviewStatus: Boolean,
+        performanceFeedback: String,
         username: String,
         email: String,
         password: String,
-        //employeeReviewer: [String]
-        
+        employeeReviewer: String,
+        roles: String
       },
       { timestamps: true }
     )
