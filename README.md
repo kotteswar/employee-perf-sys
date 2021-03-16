@@ -9,17 +9,17 @@ Run `ng server --port 8081`
 
 ## Admin users (sample users)
 
-username: admin
-password: 123456
+username: `admin`
+password: `123456`
 
-username: Kotteswar
-password: 123456
+username: `Kotteswar`
+password: `123456`
 
-username: arun11
-password: 123456
+username: `arun11`
+password: `123456`
 
-username: Raju123
-password: 123456
+username: `Raju123`
+password: `123456`
 
 username: Gandhi
 password: 123456
